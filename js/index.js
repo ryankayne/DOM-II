@@ -50,4 +50,4 @@ document.addEventListener("keypress", event => {
     blackout.style.background = "white"
   });
 
-  
+   
