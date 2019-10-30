@@ -33,21 +33,35 @@ funBusBig.addEventListener("mouseup", () => {
     funBusBig.style.transform = "scale(1)";
 })
 
-const resize = document.querySelector("footer");
+const footerChange = document.querySelector("footer");
 window.addEventListener("resize", () => {
-    resize.style.background = "purple"
+    footerChange.style.background = "purple"
+})
+
+footerChange.addEventListener('copy', (event) => {
+    event.footer.style.background = "pink";
 })
 
 const blackout = document.querySelector("body");
-document.addEventListener("keydown", () => {
-    blackout.style.background = "black"
+document.addEventListener("keydown", (event) => {
+    blackout.style.background = "black";
+    
 })
 
 document.addEventListener("keypress", event => {
     if (event.isComposing || event.keyCode === 32) {
       return;
     }
-    blackout.style.background = "white"
+    blackout.style.background = "white";
+    console.log('stopped propagation');
+    event.stopPropagation();
   });
 
+
+
+  const stopLink = document.querySelector(".nav-link");
+stopLink.addEventListener("click", (event) => {
+  console.log('stopped the link');
+  event.preventDefault();
+})
    
